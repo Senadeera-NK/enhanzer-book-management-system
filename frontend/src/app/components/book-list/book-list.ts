@@ -53,15 +53,29 @@ export class BookList implements OnInit {
   }
 
   //to save books
-  saveBook(){
-    this.bookService.addBook(this.newBook).subscribe({
-      next:(result)=>{
-        this.loadBooks();
-        this.toggleModal();
-        this.newBook = {title:'',author:'',isbn:'',publicationDate:''};
-      },
-      error:(err)=>alert("failed to add book")
-    })
+  saveBook() {
+    // for already existing books - edit
+    if (this.newBook.id) {
+      this.bookService.updateBook(this.newBook.id, this.newBook).subscribe({
+        next: (result) => {
+          this.loadBooks();
+          this.toggleModal();
+          this.newBook = { title: '', author: '', isbn: '', publicationDate: '' };
+        },
+        error: (err) => alert("Update failed")
+      });
+    } 
+    // for saving new books = (check:no id)
+    else {
+      this.bookService.addBook(this.newBook).subscribe({
+        next: (result) => {
+          this.loadBooks();
+          this.toggleModal();
+          this.newBook = { title: '', author: '', isbn: '', publicationDate: '' };
+        },
+        error: (err) => alert("Add failed")
+      });
+    }
   }
 
   // edit a book properties
