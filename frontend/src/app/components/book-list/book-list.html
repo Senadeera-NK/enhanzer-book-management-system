@@ -11,13 +11,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let book of books">
-      <td>{{ book.title }}</td>
-      <td>{{ book.author }}</td>
-      <td>{{ book.isbn }}</td>
-      <td>{{ book.publicationDate }}</td>
-      <td><button>Update</button></td>
-      <td><button>Delete</button></td>
+      <tr *ngFor="let b of books" 
+        app-book-item 
+        [book]="b" 
+        (edit)="onEdit($event)" 
+        (delete)="onDelete($event)">
     </tr>
   </tbody>
 </table>

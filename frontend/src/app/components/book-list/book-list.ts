@@ -2,12 +2,13 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core'; // 1. Add 
 import { CommonModule } from '@angular/common';
 import { Book } from '../../models/book';
 import { BookService } from '../../services/bookService';
+import { BookItem } from '../book-item/book-item';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, BookItem],
   templateUrl: './book-list.html',
   styleUrl: './book-list.css',
 })
@@ -61,6 +62,22 @@ export class BookList implements OnInit {
       },
       error:(err)=>alert("failed to add book")
     })
+  }
+
+  // edit a book properties
+  onEdit(book: Book): void {
+    this.newBook = { ...book }; 
+    this.showModal = true;      
+  }
+
+  // delete a book
+  onDelete(id: number | undefined): void {
+    if (id && confirm('Delete this book?')) {
+      this.bookService.deleteBook(id).subscribe({
+        next: () => this.loadBooks(), // Refresh the table
+        error: (err) => console.error('Delete failed', err)
+      });
+    }
   }
 
 }

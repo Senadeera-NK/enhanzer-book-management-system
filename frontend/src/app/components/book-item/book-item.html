@@ -1,1 +1,6 @@
-<p>book-item works!</p>
+<td>{{ book.title }}</td>
+<td>{{ book.author }}</td>
+<td>{{ book.isbn }}</td>
+<td>{{ book.publicationDate }}</td>
+<td><button (click)="onEdit()">Update</button></td>
+<td><button (click)="onDelete()">Delete</button></td>
