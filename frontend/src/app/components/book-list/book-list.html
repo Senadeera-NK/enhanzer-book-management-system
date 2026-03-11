@@ -1,5 +1,5 @@
 <h2>Book Collection</h2>
-<table border="1" style="width:80%; text-align: center;">
+<table>
   <thead>
     <tr>
       <th>Title</th>
@@ -43,6 +43,7 @@
       <input type="date" [(ngModel)]="newBook.publicationDate">
     </div>
 
+    <!-- buttons - save, cancel -->
     <div class="modal-actions">
       <button (click)="toggleModal()" class="btn-cancel">Cancel</button>
       <button (click)="saveBook()" class="btn-save">Save Book</button>
