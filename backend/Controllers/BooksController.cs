@@ -22,7 +22,7 @@ public class BooksController : ControllerBase
 
     //create a book
     [HttpPost]
-    public IActionResult Create(Book book)
+    public IActionResult Create([FromBody]Book book)
     {
         try
         {
