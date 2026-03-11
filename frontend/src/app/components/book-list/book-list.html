@@ -1,11 +1,13 @@
 <h2>Book Collection</h2>
-<table border="1" style="width:100%; text-align: left;">
+<table border="1" style="width:80%; text-align: center;">
   <thead>
     <tr>
       <th>Title</th>
       <th>Author</th>
       <th>ISBN</th>
       <th>Published</th>
+      <th>Update</th>
+      <th>Remove</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +16,13 @@
       <td>{{ book.author }}</td>
       <td>{{ book.isbn }}</td>
       <td>{{ book.publicationDate }}</td>
+      <td><button>Update</button></td>
+      <td><button>Delete</button></td>
     </tr>
   </tbody>
+  
+  <button class="fab" (click)="onAddClick()">
+  +
+</button>
 </table>
 <p *ngIf="books.length === 0">No books found. Add one via Postman to see it here!</p>

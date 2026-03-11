@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Book} from '../models/book';
-import { environment } from '../../environments/environment';
+import {environment} from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -31,7 +31,7 @@ export class BookService {
   updateBook(id:number, book:Book):Observable<void>{
     return this.http.put<void>(`${this.apiUrl}/${id}`,book);
   }
-  
+
   //delete a book
   deleteBook(id:number):Observable<void>{
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
