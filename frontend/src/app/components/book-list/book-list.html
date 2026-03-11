@@ -1,1 +1,20 @@
-<p>book-list works!</p>
+<h2>Book Collection</h2>
+<table border="1" style="width:100%; text-align: left;">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>ISBN</th>
+      <th>Published</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{ book.title }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.isbn }}</td>
+      <td>{{ book.publicationDate }}</td>
+    </tr>
+  </tbody>
+</table>
+<p *ngIf="books.length === 0">No books found. Add one via Postman to see it here!</p>
