@@ -27,7 +27,7 @@ dotnet restore
 dotnet run
 ```
 
-### 2. Start the Backend
+### 2. Start the Frontend
 ```bash
 cd frontend
 npm install
